@@ -4,7 +4,8 @@ import org.sql2o.*;
 
 import java.util.List;
 
-public class Sightings extends Animals{
+public class Sightings{
+    private int id;
     private int animalId;
     private String location;
     private String rangerName;
@@ -40,6 +41,9 @@ public class Sightings extends Animals{
         return rangerName;
     }
 
+    public int getId() {
+        return id;
+    }
 
     public void save()
     {
@@ -62,6 +66,19 @@ public class Sightings extends Animals{
             return conn.createQuery(getAll)
                     .throwOnMappingFailure(false)
                     .executeAndFetch(Sightings.class);
+        }
+    }
+
+    public static Sightings findById(int id)
+    {
+        try (Connection conn =Database.sql2o.open())
+        {
+            String getAll = "SELECT * FROM sightings WHERE id = :id";
+            Sightings sight=conn.createQuery(getAll)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetchFirst(Sightings.class);
+            return sight;
         }
     }
 }

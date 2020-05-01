@@ -3,6 +3,8 @@ package models;
 import org.junit.Rule;
 import org.junit.Test;
 
+import javax.swing.*;
+
 import static org.junit.Assert.*;
 
 public class SightingsTest {
@@ -63,6 +65,15 @@ public class SightingsTest {
         testSight.save();
         assertEquals(true,Sightings.getAll().get(0).equals(testSight));
         assertEquals(true,Sightings.getAll().get(1).equals(secondSight));
+    }
+
+    @Test
+    public void findById_returnsAllSightsWithSameId_SecondSight() {
+        Sightings testSight = createSight();
+        testSight.save();
+        Sightings secondSight = new Sightings(2,"Zone A", "Mark");
+        testSight.save();
+        assertEquals(Sightings.findById(secondSight.getId()),secondSight);
     }
 
     public Sightings createSight()
