@@ -11,13 +11,17 @@ public class EndangeredAnimalsTest {
 
     @Test
     public void endangered_instantiatesCorrectly_true() throws Exception {
-        EndangeredAnimals testAnimal=new EndangeredAnimals("lion");
+        EndangeredAnimals testAnimal=createAnimal();
         assertEquals(true,testAnimal instanceof EndangeredAnimals);
     }
 
-
-    //    public void createAnimal()
-//    {
-//        return new EndangeredAnimals("Lion");
-//    }
+    @Test
+    public void endangered_instantiatesWithName_String() throws Exception {
+        EndangeredAnimals testAnimal=createAnimal();
+        assertEquals("Lion", testAnimal.getName());
+    }
+    public EndangeredAnimals createAnimal()
+    {
+        return new EndangeredAnimals("Lion");
+    }
 }
