@@ -15,7 +15,13 @@ public class SightingsTest {
     assertEquals(true, testSite instanceof Sightings);
     }
 
-public Sightings createSight()
+    @Test
+    public void sighting_instantiatesWithAnimalId_int() {
+        Sightings testSight = createSight();
+        assertEquals(1,testSight.getAnimalId());
+    }
+
+    public Sightings createSight()
 {
     return new Sightings(1,"Near The River","James");
 }
