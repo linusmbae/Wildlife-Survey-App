@@ -1,7 +1,10 @@
 package models;
 
-public class Sightings {
-    private int id;
+import org.sql2o.*;
+
+import java.util.List;
+
+public class Sightings extends Animals{
     private int animalId;
     private String location;
     private String rangerName;
@@ -24,9 +27,6 @@ public class Sightings {
         }
     }
 
-    public int getId() {
-        return id;
-    }
 
     public int getAnimalId() {
         return animalId;
@@ -39,4 +39,30 @@ public class Sightings {
     public String getRangerName() {
         return rangerName;
     }
+
+
+    public void save()
+    {
+        try(Connection conn=Database.sql2o.open()) {
+            String save = "INSERT INTO sightings (animalid,location,rangername) VALUES (:animalId, :location,:rangerName)";
+            this.id = (int) conn.createQuery(save, true)
+                    .addParameter("animalId", this.animalId)
+                    .addParameter("location",this.location)
+                    .addParameter("rangerName", this.rangerName)
+                    .executeUpdate()
+                    .getKey();
+        }
+    }
+
+    public static List<Sightings> getAll()
+    {
+        String getAll = "SELECT * FROM sightings";
+        try(Connection conn = Database.sql2o.open())
+        {
+            return conn.createQuery(getAll)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(Sightings.class);
+        }
+    }
 }
+

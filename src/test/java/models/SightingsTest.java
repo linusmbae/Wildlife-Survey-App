@@ -40,6 +40,21 @@ public class SightingsTest {
         assertTrue(firstSight.equals(secondSight));
     }
 
+    @Test
+    public void save_savesSightToTheDatabase() {
+        Sightings testSight=createSight();
+        testSight.save();
+        assertTrue(Sightings.getAll().get(0).equals(testSight));
+    }
+
+    @Test
+    public void save_assignsIdToSight() {
+        Sightings testSight = createSight();
+        testSight.save();
+        Sightings savedSight = Sightings.getAll().get(0);
+        assertEquals(savedSight.getId(),testSight.getId());
+    }
+
     public Sightings createSight()
 {
     return new Sightings(1,"Near The River","James");
