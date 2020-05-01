@@ -15,9 +15,8 @@ public class EndangeredAnimals extends Animals implements Animal{
 
     public static String GENDER_MALE = "male";
     public static String GENDER_FEMALE = "female";
-    public EndangeredAnimals(String name, String type) {
+    public EndangeredAnimals(String name) {
         this.name=name;
-        this.type=type;
         gender=GENDER_MALE;
         gender=GENDER_FEMALE;
         age=AGE_NEWBORN;
