@@ -42,7 +42,21 @@ public class EndangeredAnimalsTest {
     }
 
     @Test
-    public void name() {
+    public void save_assignsIdToAnimal() {
+        EndangeredAnimals testAnimals = createAnimal();
+        testAnimals.save();
+        EndangeredAnimals savedAnimal = EndangeredAnimals.getAll().get(0);
+        assertEquals(savedAnimal.getId(), testAnimals.getId());
+    }
+
+    @Test
+    public void getAll_returnsAllInstancesOfAnimal() {
+        EndangeredAnimals firstAnimal = createAnimal();
+        firstAnimal.save();
+        EndangeredAnimals secondAnimal = new EndangeredAnimals("elephant",3);
+        secondAnimal.save();
+        assertEquals(true,EndangeredAnimals.getAll().get(0).equals(firstAnimal));
+        assertEquals(true,EndangeredAnimals.getAll().get(1).equals(secondAnimal));
     }
 
     public EndangeredAnimals createAnimal()
