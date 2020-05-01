@@ -55,6 +55,16 @@ public class SightingsTest {
         assertEquals(savedSight.getId(),testSight.getId());
     }
 
+    @Test
+    public void getAll_returnsAllInstancesOfSight() {
+        Sightings testSight = createSight();
+        testSight.save();
+        Sightings secondSight = new Sightings(2,"Zone A", "Mark");
+        testSight.save();
+        assertEquals(true,Sightings.getAll().get(0).equals(testSight));
+        assertEquals(true,Sightings.getAll().get(1).equals(secondSight));
+    }
+
     public Sightings createSight()
 {
     return new Sightings(1,"Near The River","James");
