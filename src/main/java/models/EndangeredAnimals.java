@@ -2,6 +2,8 @@ package models;
 
 import org.sql2o.*;
 
+import java.util.List;
+
 public class EndangeredAnimals extends Animals implements Animal{
     private String age;
     private String health;
@@ -30,17 +32,38 @@ public class EndangeredAnimals extends Animals implements Animal{
 
     @Override
     public void save() {
-
+        try(Connection conn=Database.sql2o.open()) {
+            String save="INSERT INTO animals (name) VALUES (:name)";
+            this.id = (int) conn.createQuery(save, true)
+                    .addParameter("name", this.name)
+                    .executeUpdate()
+                    .getKey();
+        }
     }
 
-    @Override
     public void findById() {
 
     }
 
     @Override
-    public void findAll() {
+    public boolean equals(Object otherAnimal){
+        if (!(otherAnimal instanceof EndangeredAnimals)) {
+            return false;
+        } else {
+            EndangeredAnimals newAnimal = (EndangeredAnimals) otherAnimal;
+            return this.getName().equals(newAnimal.getName()) &&
+                    this.getRangerId() == newAnimal.getRangerId();
+        }
+    }
 
+    public static List<EndangeredAnimals> getAll() {
+    String getAll="SELECT * FROM animals";
+    try(Connection conn = Database.sql2o.open())
+    {
+        return conn.createQuery(getAll)
+                .throwOnMappingFailure(false)
+                .executeAndFetch(EndangeredAnimals.class);
+    }
     }
 
     @Override

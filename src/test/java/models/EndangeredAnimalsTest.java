@@ -27,6 +27,24 @@ public class EndangeredAnimalsTest {
         assertEquals(1,testAnimals.getRangerId());
     }
 
+    @Test
+    public void equals_returnsTrueIfNameAndRangerIdAreSame_true() {
+        EndangeredAnimals testAnimal = createAnimal();
+        EndangeredAnimals anotherAnimal = createAnimal();
+        assertTrue(testAnimal.equals(anotherAnimal));
+    }
+
+    @Test
+    public void save_savesAnimalToTheDatabase() throws Exception {
+        EndangeredAnimals testAnimals = createAnimal();
+        testAnimals.save();
+        assertTrue(EndangeredAnimals.getAll().get(0).equals(testAnimals));
+    }
+
+    @Test
+    public void name() {
+    }
+
     public EndangeredAnimals createAnimal()
     {
         return new EndangeredAnimals("Lion",1);
