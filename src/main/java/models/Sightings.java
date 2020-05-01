@@ -12,6 +12,18 @@ public class Sightings {
         this.rangerName = rangerName;
     }
 
+    @Override
+    public boolean equals(Object otherSight){
+        if (!(otherSight instanceof Sightings)) {
+            return false;
+        } else {
+            Sightings newSight = (Sightings) otherSight;
+            return this.getLocation().equals(newSight.getLocation()) &&
+                    this.getRangerName().equals(newSight.getRangerName()) &&
+                    this.getAnimalId() == newSight.getAnimalId();
+        }
+    }
+
     public int getId() {
         return id;
     }

@@ -33,6 +33,13 @@ public class SightingsTest {
         assertEquals("James", testSight.getRangerName());
     }
 
+    @Test
+    public void equals_returnsTrueIfSightDetailsAreEqual_true() {
+        Sightings firstSight=createSight();
+        Sightings secondSight=createSight();
+        assertTrue(firstSight.equals(secondSight));
+    }
+
     public Sightings createSight()
 {
     return new Sightings(1,"Near The River","James");
