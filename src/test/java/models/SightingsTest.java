@@ -27,6 +27,12 @@ public class SightingsTest {
         assertEquals("Near The River", testSight.getLocation());
     }
 
+    @Test
+    public void sighting_instantiatesWithRangerName_String() {
+        Sightings testSight = createSight();
+        assertEquals("James", testSight.getRangerName());
+    }
+
     public Sightings createSight()
 {
     return new Sightings(1,"Near The River","James");
