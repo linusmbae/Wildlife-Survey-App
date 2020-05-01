@@ -59,6 +59,15 @@ public class EndangeredAnimalsTest {
         assertEquals(true,EndangeredAnimals.getAll().get(1).equals(secondAnimal));
     }
 
+    @Test
+    public void find_returnsAnimalWithSameId_secondAnimal() {
+        EndangeredAnimals firstAnimal = createAnimal();
+        firstAnimal.save();
+        EndangeredAnimals secondAnimal = new EndangeredAnimals("elephant",3);
+        secondAnimal.save();
+        assertEquals(EndangeredAnimals.findById(secondAnimal.getId()), secondAnimal);
+    }
+
     public EndangeredAnimals createAnimal()
     {
         return new EndangeredAnimals("Lion",1);

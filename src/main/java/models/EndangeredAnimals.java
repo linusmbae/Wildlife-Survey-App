@@ -42,8 +42,15 @@ public class EndangeredAnimals extends Animals implements Animal{
         }
     }
 
-    public void findById() {
-
+    public static EndangeredAnimals findById(int id) {
+        try(Connection conn = Database.sql2o.open()) {
+            String sql = "SELECT * FROM animals where id=:id";
+            EndangeredAnimals animal = conn.createQuery(sql)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetchFirst(EndangeredAnimals.class);
+            return animal;
+        }
     }
 
     @Override
