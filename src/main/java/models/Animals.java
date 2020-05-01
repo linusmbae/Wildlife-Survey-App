@@ -4,6 +4,7 @@ public abstract class Animals {
     public int id;
     public String name;
     public String gender;
+    public int rangerId;
 
 
     public int getId() {
@@ -18,5 +19,7 @@ public abstract class Animals {
         return gender;
     }
 
-
+    public int getRangerId() {
+        return rangerId;
+    }
 }

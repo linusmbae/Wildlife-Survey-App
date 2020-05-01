@@ -20,8 +20,15 @@ public class EndangeredAnimalsTest {
         EndangeredAnimals testAnimal=createAnimal();
         assertEquals("Lion", testAnimal.getName());
     }
+
+    @Test
+    public void endangered_instantiatesWithRangerId_int() throws Exception {
+        EndangeredAnimals testAnimals = createAnimal();
+        assertEquals(1,testAnimals.getRangerId());
+    }
+
     public EndangeredAnimals createAnimal()
     {
-        return new EndangeredAnimals("Lion");
+        return new EndangeredAnimals("Lion",1);
     }
 }
