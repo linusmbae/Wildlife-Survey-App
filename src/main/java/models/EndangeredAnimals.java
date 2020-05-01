@@ -1,5 +1,7 @@
 package models;
 
+import org.sql2o.*;
+
 public class EndangeredAnimals extends Animals implements Animal{
     private String age;
     private String health;
