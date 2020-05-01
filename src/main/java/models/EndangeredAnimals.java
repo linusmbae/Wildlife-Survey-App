@@ -55,4 +55,12 @@ public class EndangeredAnimals extends Animals implements Animal{
     public void removeAll() {
 
     }
+
+    public String getAge() {
+        return age;
+    }
+
+    public String getHealth() {
+        return health;
+    }
 }
