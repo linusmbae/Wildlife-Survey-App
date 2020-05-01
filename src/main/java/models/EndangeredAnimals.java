@@ -2,6 +2,8 @@ package models;
 
 import org.sql2o.*;
 
+import java.util.List;
+
 public class EndangeredAnimals extends Animals implements Animal{
     private String age;
     private String health;
@@ -15,9 +17,9 @@ public class EndangeredAnimals extends Animals implements Animal{
 
     public static String GENDER_MALE = "male";
     public static String GENDER_FEMALE = "female";
-    public EndangeredAnimals(String name, String type) {
+    public EndangeredAnimals(String name, int rangerId) {
         this.name=name;
-        this.type=type;
+        this.rangerId=rangerId;
         gender=GENDER_MALE;
         gender=GENDER_FEMALE;
         age=AGE_NEWBORN;
@@ -30,17 +32,46 @@ public class EndangeredAnimals extends Animals implements Animal{
 
     @Override
     public void save() {
+        try(Connection conn=Database.sql2o.open()) {
+            String save="INSERT INTO animals (name,rangerid) VALUES (:name, rangerId)";
+            this.id = (int) conn.createQuery(save, true)
+                    .addParameter("name", this.name)
+                    .addParameter("id",this.rangerId)
+                    .executeUpdate()
+                    .getKey();
+        }
+    }
 
+    public static EndangeredAnimals findById(int id) {
+        try(Connection conn = Database.sql2o.open()) {
+            String sql = "SELECT * FROM animals where id=:id";
+            EndangeredAnimals animal = conn.createQuery(sql)
+                    .addParameter("id", id)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetchFirst(EndangeredAnimals.class);
+            return animal;
+        }
     }
 
     @Override
-    public void findById() {
-
+    public boolean equals(Object otherAnimal){
+        if (!(otherAnimal instanceof EndangeredAnimals)) {
+            return false;
+        } else {
+            EndangeredAnimals newAnimal = (EndangeredAnimals) otherAnimal;
+            return this.getName().equals(newAnimal.getName()) &&
+                    this.getRangerId() == newAnimal.getRangerId();
+        }
     }
 
-    @Override
-    public void findAll() {
-
+    public static List<EndangeredAnimals> getAll() {
+    String getAll="SELECT * FROM animals";
+    try(Connection conn = Database.sql2o.open())
+    {
+        return conn.createQuery(getAll)
+                .throwOnMappingFailure(false)
+                .executeAndFetch(EndangeredAnimals.class);
+    }
     }
 
     @Override

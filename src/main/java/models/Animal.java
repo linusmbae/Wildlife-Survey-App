@@ -4,9 +4,9 @@ public interface Animal {
 //    CREATE ANIMAL
     void save();
 
-//    READ ANIMAL
-    void findById();
-    void findAll();
+////    READ ANIMAL
+//    void findById();
+//    void findAll();
 
 //    UPDATE ANIMAL
     void update();
