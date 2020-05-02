@@ -92,23 +92,24 @@ public class EndangeredAnimalsTest {
     @Test
     public void updateNewborn_updatesEndangeredAnimalEstimatedAge() {
         EndangeredAnimals testAnimal = createAnimal();
-        testAnimal.updateNewBorn();
+        testAnimal.update();
         assertTrue(testAnimal.getAgeNewBorn().equals(EndangeredAnimals.AGE_NEWBORN));
     }
 
     @Test
     public void updateYoung_updatesEndangeredAnimalEstimatedAge() {
         EndangeredAnimals testAnimal = createAnimal();
-        testAnimal.updateYoung();
+        testAnimal.update();
         assertTrue(testAnimal.getAgeYoung().equals(EndangeredAnimals.AGE_YOUNG));
     }
 
     @Test
     public void updateAdult_updatesEndangeredAnimalEstimatedAge() {
         EndangeredAnimals testAnimal = createAnimal();
-        testAnimal.updateAdult();
+        testAnimal.update();
         assertTrue(testAnimal.getAgeAdult().equals(EndangeredAnimals.AGE_ADULT));
     }
+
 
     public EndangeredAnimals createAnimal()
     {

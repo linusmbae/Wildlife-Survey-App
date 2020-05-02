@@ -74,36 +74,30 @@ public class EndangeredAnimals extends Animals implements Animal{
     }
     }
 
-    public void updateNewBorn() {
+    public void update() {
         try(Connection conn=Database.sql2o.open())
         {
-            String update = "UPDATE animals SET age=:ageNewBorn WHERE id = :id";
-            conn.createQuery(update)
+            String updateNewBorn = "UPDATE animals SET age=:ageNewBorn WHERE id = :id";
+            conn.createQuery(updateNewBorn)
                     .addParameter("ageNewBorn", ageNewBorn)
                     .addParameter("id", id)
                     .executeUpdate();
-        }
-    }
 
-    public void updateYoung(){
-        try(Connection conn = Database.sql2o.open()) {
-            String update = "UPDATE animals SET age = :ageYoung WHERE id= :id";
-            conn.createQuery(update)
+            String updateYoung = "UPDATE animals SET age = :ageYoung WHERE id= :id";
+            conn.createQuery(updateYoung)
                     .addParameter("ageYoung", ageYoung)
                     .addParameter("id", id)
                     .executeUpdate();
-        }
-    }
 
-    public void updateAdult(){
-        try(Connection conn=Database.sql2o.open()) {
-            String update = "UPDATE animals SET age = :ageAdult WHERE id = :id";
-            conn.createQuery(update)
+            String updateAdult = "UPDATE animals SET age = :ageAdult WHERE id = :id";
+            conn.createQuery(updateAdult)
                     .addParameter("ageAdult", ageAdult)
                     .addParameter("id", id)
                     .executeUpdate();
         }
     }
+
+
     @Override
     public void removeById() {
 
