@@ -3,11 +3,11 @@
 
     <form action="/animals/endangered" method="post">
         <div class="form-group">
-            {{#each endangeredAnimals}}
                 <select name="endangeredAnimals" id="endangeredAnimals" class="form-control">
+                    {{#each endangeredAnimals}}
                     <option value="" >{{name}}</option>
+                    {{/each}}
                 </select>
-            {{/each}}
         </div>
         <div class="form-group">
                 <select name="age" id="age" class="form-control">
