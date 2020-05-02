@@ -53,7 +53,7 @@ public class EndangeredAnimalsTest {
     public void getAll_returnsAllInstancesOfAnimal() {
         EndangeredAnimals firstAnimal = createAnimal();
         firstAnimal.save();
-        EndangeredAnimals secondAnimal = new EndangeredAnimals("elephant",3);
+        EndangeredAnimals secondAnimal = createSecondAnimal();
         secondAnimal.save();
         assertEquals(true,EndangeredAnimals.getAll().get(0).equals(firstAnimal));
         assertEquals(true,EndangeredAnimals.getAll().get(1).equals(secondAnimal));
@@ -63,7 +63,7 @@ public class EndangeredAnimalsTest {
     public void find_returnsAnimalWithSameId_secondAnimal() {
         EndangeredAnimals firstAnimal = createAnimal();
         firstAnimal.save();
-        EndangeredAnimals secondAnimal = new EndangeredAnimals("elephant",3);
+        EndangeredAnimals secondAnimal = createSecondAnimal();
         secondAnimal.save();
         assertEquals(EndangeredAnimals.findById(secondAnimal.getId()), secondAnimal);
     }
@@ -141,12 +141,25 @@ public class EndangeredAnimalsTest {
     public void removeById_removesAnimalById() {
         EndangeredAnimals testAnimals = createAnimal();
         testAnimals.save();
+
         testAnimals.removeById();
         assertEquals(null,EndangeredAnimals.findById(testAnimals.getId()));
+    }
+
+    @Test
+    public void removeAll_clearsAnimalDatabase() {
+        EndangeredAnimals testAnimal = createAnimal();
+        testAnimal.save();
+        testAnimal.removeAll();
+        assertEquals(null,EndangeredAnimals.findById(testAnimal.getId()));
     }
 
     public EndangeredAnimals createAnimal()
     {
         return new EndangeredAnimals("Lion",1);
+    }
+    public EndangeredAnimals createSecondAnimal()
+    {
+        return new EndangeredAnimals("Elephant",1);
     }
 }

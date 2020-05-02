@@ -126,14 +126,19 @@ public class EndangeredAnimals extends Animals implements Animal{
         {
             String remove = "DELETE FROM animals WHERE id = :id";
             conn.createQuery(remove)
-                    .addParameter("id", id)
+                    .addParameter("id", this.id)
                     .executeUpdate();
         }
     }
 
-    @Override
-    public void removeAll() {
 
+    public void removeAll() {
+        try(Connection conn=Database.sql2o.open())
+        {
+            String remove = "DELETE FROM animals";
+            conn.createQuery(remove)
+                    .executeUpdate();
+        }
     }
 
     public String getAgeNewBorn() {
