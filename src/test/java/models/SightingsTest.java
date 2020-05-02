@@ -61,7 +61,7 @@ public class SightingsTest {
     public void getAll_returnsAllInstancesOfSight() {
         Sightings testSight = createSight();
         testSight.save();
-        Sightings secondSight = new Sightings(2,"Zone A", "Mark");
+        Sightings secondSight = new Sightings(3,"Zone A", "Mark");
         testSight.save();
         assertEquals(true,Sightings.getAll().get(0).equals(testSight));
         assertEquals(true,Sightings.getAll().get(1).equals(secondSight));
@@ -71,7 +71,7 @@ public class SightingsTest {
     public void findById_returnsAllSightsWithSameId_SecondSight() {
         Sightings testSight = createSight();
         testSight.save();
-        Sightings secondSight = new Sightings(2,"Zone A", "Mark");
+        Sightings secondSight = new Sightings(3,"Zone A", "Mark");
         testSight.save();
         assertEquals(Sightings.findById(secondSight.getId()),secondSight);
     }
