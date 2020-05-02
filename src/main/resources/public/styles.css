@@ -4,3 +4,8 @@ background-image: url("../images/jungle.png");
 background-repeat: no-repeat;
 background-size: cover;
 }
+
+#submit
+{
+border-radius:20px;
+}
