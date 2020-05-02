@@ -37,5 +37,12 @@ public class App {
             response.redirect("/");
             return null;
         },new HandlebarsTemplateEngine());
+        get("/animals/endangered", (request, response) ->
+        {
+            Map<String, Object>model=new HashMap<String, Object>();
+            List<EndangeredAnimals> endangeredAnimals=EndangeredAnimals.getAll();
+            model.put("endangeredAnimals", endangeredAnimals);
+            return new ModelAndView(model, "endangered_animal_form.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }
