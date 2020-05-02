@@ -16,11 +16,11 @@ public class Sightings extends Animals{
     }
 
     @Override
-    public boolean equals(Object otherSight){
-        if (!(otherSight instanceof Sightings)) {
+    public boolean equals(Object secondSight){
+        if (!(secondSight instanceof Sightings)) {
             return false;
         } else {
-            Sightings newSight = (Sightings) otherSight;
+            Sightings newSight = (Sightings) secondSight;
             return  this.getAnimalId() == newSight.getAnimalId()&&
                     this.getLocation().equals(newSight.getLocation()) &&
                     this.getRangerName().equals(newSight.getRangerName()) ;
