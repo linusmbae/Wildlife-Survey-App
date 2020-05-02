@@ -68,6 +68,27 @@ public class EndangeredAnimalsTest {
         assertEquals(EndangeredAnimals.findById(secondAnimal.getId()), secondAnimal);
     }
 
+    @Test
+    public void endangeredAnimal_instantiatesWithNewBorn() {
+        EndangeredAnimals testAnimal = createAnimal();
+        testAnimal.save();
+        assertEquals(testAnimal.getAgeNewBorn(),(EndangeredAnimals.AGE_NEWBORN));
+    }
+
+    @Test
+    public void endangeredAnimal_instantiatesWithYoungAnimal() {
+        EndangeredAnimals testAnimal = createAnimal();
+        testAnimal.save();
+        assertEquals(testAnimal.getAgeYoung(),(EndangeredAnimals.AGE_YOUNG));
+    }
+
+    @Test
+    public void endangeredAnimal_instantiatesWithAdultAnimal() {
+        EndangeredAnimals testAnimal = createAnimal();
+        testAnimal.save();
+        assertEquals(testAnimal.getAgeAdult(),(EndangeredAnimals.AGE_ADULT));
+    }
+
     public EndangeredAnimals createAnimal()
     {
         return new EndangeredAnimals("Lion",1);

@@ -5,7 +5,9 @@ import org.sql2o.*;
 import java.util.List;
 
 public class EndangeredAnimals extends Animals implements Animal{
-    private String age;
+    private String ageNewBorn;
+    private String ageYoung;
+    private String ageAdult;
     private String health;
     public static final String AGE_NEWBORN = "newBorn";
     public static final String AGE_YOUNG = "young";
@@ -18,9 +20,9 @@ public class EndangeredAnimals extends Animals implements Animal{
     public EndangeredAnimals(String name, int rangerId) {
         this.name=name;
         this.rangerId=rangerId;
-        age=AGE_NEWBORN;
-        age=AGE_YOUNG;
-        age=AGE_ADULT;
+        ageNewBorn=AGE_NEWBORN;
+        ageYoung=AGE_YOUNG;
+        ageAdult=AGE_ADULT;
         health=HEALTH_HEALTHY;
         health=HEALTH_ILL;
         health=HEALTH_OKAY;
@@ -84,8 +86,16 @@ public class EndangeredAnimals extends Animals implements Animal{
 
     }
 
-    public String getAge() {
-        return age;
+    public String getAgeNewBorn() {
+        return ageNewBorn;
+    }
+
+    public String getAgeYoung() {
+        return ageYoung;
+    }
+
+    public String getAgeAdult() {
+        return ageAdult;
     }
 
     public String getHealth() {
