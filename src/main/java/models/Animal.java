@@ -9,7 +9,9 @@ public interface Animal {
 //    void findAll();
 
 //    UPDATE ANIMAL
-    void update();
+    void updateNewBorn();
+    void updateYoung();
+    void updateAdult();
 
 //    DESTROY ANIMAL
     void  removeById();

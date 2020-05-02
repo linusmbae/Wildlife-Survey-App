@@ -8,11 +8,14 @@ public class EndangeredAnimals extends Animals implements Animal{
     private String ageNewBorn;
     private String ageYoung;
     private String ageAdult;
-    private String health;
+
     public static final String AGE_NEWBORN = "newBorn";
     public static final String AGE_YOUNG = "young";
     public static final String AGE_ADULT = "adult";
 
+    private String healthHealthy;
+    private String healthIll;
+    private String healthOkay;
     public static String HEALTH_HEALTHY = "healthy";
     public static String HEALTH_ILL = "ill";
     public static String HEALTH_OKAY = "okay";
@@ -23,9 +26,9 @@ public class EndangeredAnimals extends Animals implements Animal{
         ageNewBorn=AGE_NEWBORN;
         ageYoung=AGE_YOUNG;
         ageAdult=AGE_ADULT;
-        health=HEALTH_HEALTHY;
-        health=HEALTH_ILL;
-        health=HEALTH_OKAY;
+        healthHealthy=HEALTH_HEALTHY;
+        healthIll=HEALTH_ILL;
+        healthOkay=HEALTH_OKAY;
     }
 
     public void save() {
@@ -71,11 +74,36 @@ public class EndangeredAnimals extends Animals implements Animal{
     }
     }
 
-    @Override
-    public void update() {
-
+    public void updateNewBorn() {
+        try(Connection conn=Database.sql2o.open())
+        {
+            String update = "UPDATE animals SET age=:ageNewBorn WHERE id = :id";
+            conn.createQuery(update)
+                    .addParameter("ageNewBorn", ageNewBorn)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }
     }
 
+    public void updateYoung(){
+        try(Connection conn = Database.sql2o.open()) {
+            String update = "UPDATE animals SET age = :ageYoung WHERE id= :id";
+            conn.createQuery(update)
+                    .addParameter("ageYoung", ageYoung)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }
+    }
+
+    public void updateAdult(){
+        try(Connection conn=Database.sql2o.open()) {
+            String update = "UPDATE animals SET age = :ageAdult WHERE id = :id";
+            conn.createQuery(update)
+                    .addParameter("ageAdult", ageAdult)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }
+    }
     @Override
     public void removeById() {
 
@@ -98,7 +126,15 @@ public class EndangeredAnimals extends Animals implements Animal{
         return ageAdult;
     }
 
-    public String getHealth() {
-        return health;
+    public String getHealthHealthy() {
+        return healthHealthy;
+    }
+
+    public String getHealthIll() {
+        return healthIll;
+    }
+
+    public String getHealthOkay() {
+        return healthOkay;
     }
 }
