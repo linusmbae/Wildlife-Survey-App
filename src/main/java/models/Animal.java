@@ -11,6 +11,7 @@ public interface Animal {
 //    UPDATE ANIMAL
     void update();
 
+
 //    DESTROY ANIMAL
     void  removeById();
     void removeAll();
