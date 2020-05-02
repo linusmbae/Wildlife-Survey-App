@@ -4,8 +4,7 @@ import org.sql2o.*;
 
 import java.util.List;
 
-public class Sightings{
-    private int id;
+public class Sightings extends Animals{
     private int animalId;
     private String location;
     private String rangerName;
@@ -22,9 +21,9 @@ public class Sightings{
             return false;
         } else {
             Sightings newSight = (Sightings) otherSight;
-            return this.getLocation().equals(newSight.getLocation()) &&
-                    this.getRangerName().equals(newSight.getRangerName()) &&
-                    this.getAnimalId() == newSight.getAnimalId();
+            return  this.getAnimalId() == newSight.getAnimalId()&&
+                    this.getLocation().equals(newSight.getLocation()) &&
+                    this.getRangerName().equals(newSight.getRangerName()) ;
         }
     }
 
@@ -73,8 +72,8 @@ public class Sightings{
     {
         try (Connection conn =Database.sql2o.open())
         {
-            String getAll = "SELECT * FROM sightings WHERE id = :id";
-            Sightings sight=conn.createQuery(getAll)
+            String getById = "SELECT * FROM sightings WHERE id = :id";
+            Sightings sight=conn.createQuery(getById)
                     .addParameter("id", id)
                     .throwOnMappingFailure(false)
                     .executeAndFetchFirst(Sightings.class);
