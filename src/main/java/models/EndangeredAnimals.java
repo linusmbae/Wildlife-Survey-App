@@ -97,18 +97,21 @@ public class EndangeredAnimals extends Animals implements Animal{
                     .executeUpdate();
 
 //            update health
+//            healthy animal
             String updateHealthy = "UPDATE animals SET health = :healthHealthy WHERE id = :id";
             conn.createQuery(updateHealthy)
                     .addParameter("healthHealthy", healthHealthy)
                     .addParameter("id", id)
                     .executeUpdate();
 
+//            ill animal
             String updateIll = "UPDATE animals SET health = :healthIll WHERE id = :id";
             conn.createQuery(updateIll)
                     .addParameter("healthIll",healthIll)
                     .addParameter("id", id)
                     .executeUpdate();
 
+//            okay animal
             String updateOkay = "UPDATE animals SET health = :healthOkay WHERE id =:id";
             conn.createQuery(updateOkay)
                     .addParameter("healthOkay", healthOkay)
@@ -118,9 +121,14 @@ public class EndangeredAnimals extends Animals implements Animal{
     }
 
 
-    @Override
     public void removeById() {
-
+        try(Connection conn=Database.sql2o.open())
+        {
+            String remove = "DELETE FROM animals WHERE id = :id";
+            conn.createQuery(remove)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }
     }
 
     @Override

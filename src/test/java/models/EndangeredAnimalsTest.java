@@ -137,6 +137,14 @@ public class EndangeredAnimalsTest {
         assertTrue(testAnimal.getHealthOkay().equals(savedAnimal.HEALTH_OKAY));
     }
 
+    @Test
+    public void removeById_removesAnimalById() {
+        EndangeredAnimals testAnimals = createAnimal();
+        testAnimals.save();
+        testAnimals.removeById();
+        assertEquals(null,EndangeredAnimals.findById(testAnimals.getId()));
+    }
+
     public EndangeredAnimals createAnimal()
     {
         return new EndangeredAnimals("Lion",1);
