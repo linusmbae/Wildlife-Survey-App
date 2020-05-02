@@ -90,7 +90,7 @@ public class EndangeredAnimalsTest {
     }
 
     @Test
-    public void updateNewborn_updatesEndangeredAnimalEstimatedAge() {
+    public void update_updatesEndangeredAnimalEstimatedNewBornAge() {
         EndangeredAnimals testAnimal = createAnimal();
         testAnimal.update();
         EndangeredAnimals savedAnimal=EndangeredAnimals.findById(testAnimal.getId());
@@ -98,7 +98,7 @@ public class EndangeredAnimalsTest {
     }
 
     @Test
-    public void updateYoung_updatesEndangeredAnimalEstimatedAge() {
+    public void update_updatesEndangeredAnimalEstimatedYoungAge() {
         EndangeredAnimals testAnimal = createAnimal();
         testAnimal.update();
         EndangeredAnimals savedAnimal=EndangeredAnimals.findById(testAnimal.getId());
@@ -106,13 +106,36 @@ public class EndangeredAnimalsTest {
     }
 
     @Test
-    public void updateAdult_updatesEndangeredAnimalEstimatedAge() {
+    public void update_updatesEndangeredAnimalEstimatedAdultAge() {
         EndangeredAnimals testAnimal = createAnimal();
         testAnimal.update();
         EndangeredAnimals savedAnimal = EndangeredAnimals.findById(testAnimal.getId());
         assertTrue(testAnimal.getAgeAdult().equals(savedAnimal.AGE_ADULT));
     }
 
+    @Test
+    public void update_updatesHealthyAnimal() {
+        EndangeredAnimals testAnimal= createAnimal();
+        testAnimal.update();
+        EndangeredAnimals savedAnimal = EndangeredAnimals.findById(testAnimal.getId());
+        assertTrue(testAnimal.getHealthHealthy().equals(savedAnimal.HEALTH_HEALTHY));
+    }
+
+    @Test
+    public void update_updatesIllAnimal() {
+        EndangeredAnimals testAnimal =createAnimal();
+        testAnimal.update();
+        EndangeredAnimals savedAnimal =EndangeredAnimals.findById(testAnimal.getId());
+        assertTrue(testAnimal.getHealthIll().equals(savedAnimal.HEALTH_ILL));
+    }
+
+    @Test
+    public void update_updatesOkayAnimal() {
+        EndangeredAnimals testAnimal = createAnimal();
+        testAnimal.update();
+        EndangeredAnimals savedAnimal = EndangeredAnimals.findById(testAnimal.getId());
+        assertTrue(testAnimal.getHealthOkay().equals(savedAnimal.HEALTH_OKAY));
+    }
 
     public EndangeredAnimals createAnimal()
     {
