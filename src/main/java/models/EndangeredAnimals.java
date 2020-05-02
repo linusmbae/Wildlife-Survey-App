@@ -78,18 +78,21 @@ public class EndangeredAnimals extends Animals implements Animal{
         try(Connection conn=Database.sql2o.open())
         {
 //            update age
+//            new born animal
             String updateNewBorn = "UPDATE animals SET age=:ageNewBorn WHERE id = :id";
             conn.createQuery(updateNewBorn)
                     .addParameter("ageNewBorn", ageNewBorn)
                     .addParameter("id", id)
                     .executeUpdate();
 
+//            young animal
             String updateYoung = "UPDATE animals SET age = :ageYoung WHERE id= :id";
             conn.createQuery(updateYoung)
                     .addParameter("ageYoung", ageYoung)
                     .addParameter("id", id)
                     .executeUpdate();
 
+//            adult animal
             String updateAdult = "UPDATE animals SET age = :ageAdult WHERE id = :id";
             conn.createQuery(updateAdult)
                     .addParameter("ageAdult", ageAdult)
