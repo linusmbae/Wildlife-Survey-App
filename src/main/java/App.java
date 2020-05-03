@@ -34,7 +34,7 @@ public class App {
             String name = request.queryParams("name");
             int rangerId = Integer.parseInt(request.queryParams("rangerId"));
             EndangeredAnimals endangeredAnimals= new EndangeredAnimals(name,rangerId);
-            model.put("endangeredAnimals",endangeredAnimals);
+            endangeredAnimals.save();
             response.redirect("/");
             return null;
         },new HandlebarsTemplateEngine());
@@ -47,11 +47,17 @@ public class App {
             return new ModelAndView(model, "endangered_animal_form.hbs");
         }, new HandlebarsTemplateEngine());
 
-//        post("/animals/endangered/update", (request, response) ->
-//        {
-//            Map<String , Object>model=new HashMap<String, Object>();
-//
-//        });
+        post("/animals/:id/update", (request, response) ->
+        {
+            Map<String , Object>model=new HashMap<String, Object>();
+            String age = request.queryParams("age");
+            String health = request.queryParams("health");
+            int idToUpdate = Integer.parseInt(request.params(":id"));
+            EndangeredAnimals updateAnimal=EndangeredAnimals.findById(idToUpdate);
+            updateAnimal.update();
+            response.redirect("/");
+            return null;
+        },new HandlebarsTemplateEngine());
 
 
         get("/sight", (request, response) ->
@@ -67,5 +73,18 @@ public class App {
             Map<String, Object>model= new HashMap<String, Object>();
             return new ModelAndView(model,"newSight.hbs");
         }, new HandlebarsTemplateEngine());
+
+        post("/sight/new", (request, response) ->
+        {
+            Map<String, Object>model=new HashMap<String, Object>();
+            int animalId=Integer.parseInt(request.queryParams("animalId"));
+            String location=request.queryParams("location");
+            String rangerName = request.queryParams("rangerName");
+
+            Sightings newSight=new Sightings(animalId,location,rangerName);
+            newSight.save();
+            response.redirect("/sight");
+            return null;
+        },new HandlebarsTemplateEngine());
     }
 }
