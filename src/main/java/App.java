@@ -1,4 +1,5 @@
 import models.EndangeredAnimals;
+import models.Sightings;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -33,16 +34,66 @@ public class App {
             String name = request.queryParams("name");
             int rangerId = Integer.parseInt(request.queryParams("rangerId"));
             EndangeredAnimals endangeredAnimals= new EndangeredAnimals(name,rangerId);
-            model.put("endangeredAnimals",endangeredAnimals);
+            endangeredAnimals.save();
             response.redirect("/");
             return null;
         },new HandlebarsTemplateEngine());
-        get("/animals/endangered", (request, response) ->
+        get("/animals/:id/update", (request, response) ->
         {
             Map<String, Object>model=new HashMap<String, Object>();
-            List<EndangeredAnimals> endangeredAnimals=EndangeredAnimals.getAll();
-            model.put("endangeredAnimals", endangeredAnimals);
+            int idToUpdate=Integer.parseInt(request.params(":id"));
+            EndangeredAnimals editAnimal=EndangeredAnimals.findById(idToUpdate);
+            model.put("editAnimal", editAnimal);
             return new ModelAndView(model, "endangered_animal_form.hbs");
         }, new HandlebarsTemplateEngine());
+
+        post("/animals/:id/update", (request, response) ->
+        {
+            Map<String , Object>model=new HashMap<String, Object>();
+            String age = request.queryParams("age");
+            String health = request.queryParams("health");
+            int idToUpdate = Integer.parseInt(request.params(":id"));
+            EndangeredAnimals updateAnimal=EndangeredAnimals.findById(idToUpdate);
+            updateAnimal.update();
+            response.redirect("/");
+            return null;
+        },new HandlebarsTemplateEngine());
+
+
+        get("/sight", (request, response) ->
+        {
+            Map<String , Object>model=new HashMap<String, Object>();
+            List<Sightings>sights=Sightings.getAll();
+            model.put("sights",sights);
+            return new ModelAndView(model,"sight.hbs");
+        },new HandlebarsTemplateEngine());
+
+        get("/sight/new", (request, response) ->
+        {
+            Map<String, Object>model= new HashMap<String, Object>();
+            return new ModelAndView(model,"newSight.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/sight/new", (request, response) ->
+        {
+            Map<String, Object>model=new HashMap<String, Object>();
+            int animalId=Integer.parseInt(request.queryParams("animalId"));
+            String location=request.queryParams("location");
+            String rangerName = request.queryParams("rangerName");
+
+            Sightings newSight=new Sightings(animalId,location,rangerName);
+            newSight.save();
+            response.redirect("/sight");
+            return null;
+        },new HandlebarsTemplateEngine());
+
+        get("/sight/:id/update",(request, response) ->
+        {
+            Map<String, Object>model=new HashMap<String, Object>();
+            int idToUpdate=Integer.parseInt(request.params(":id"));
+            Sightings editSight=Sightings.findById(idToUpdate);
+            model.put("editSight", editSight);
+            return new ModelAndView(model, "update-sight.hbs");
+        },new HandlebarsTemplateEngine());
     }
 }

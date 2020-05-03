@@ -1,0 +1,14 @@
+{{#partial "content"}}
+    <a href="/sight" class="btn btn-default"><strong>Sights</strong></a>
+    <a href="/sight/new" class="btn btn-danger"><strong>New Sight</strong></a>
+    {{#if sights}}
+        <h3><strong><center>Registered Sights</center></strong></h3>
+        {{#each sights}}
+            <p><center>{{location}}<a id="float" class="btn btn-success" href="/sight/{{id}}/update"><Strong>Edit</Strong></a></center></p>
+        {{/each}}
+    {{else}}
+        <h3><strong><center>No Registered Sights</center></strong></h3>
+    {{/if}}
+
+{{/partial}}
+{{>layout.hbs}}

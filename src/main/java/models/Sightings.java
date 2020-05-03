@@ -80,5 +80,40 @@ public class Sightings extends Animals{
             return sight;
         }
     }
+
+    public void update()
+    {
+        try (Connection conn = Database.sql2o.open()){
+            String sql = "UPDATE sightings SET animalid=:animalId, location=:location,rangername=:rangerName WHERE id=:id";
+            conn.createQuery(sql)
+                    .addParameter("animalId", animalId)
+                    .addParameter("location", location)
+                    .addParameter("rangerName", rangerName)
+                    .addParameter("id",id)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate();
+
+        }
+    }
+    public void removeById()
+    {
+        try(Connection conn=Database.sql2o.open()) {
+            String remove="DELETE FROM sightings WHERE id = :id";
+            conn.createQuery(remove)
+                    .addParameter("id",id)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate();
+        }
+    }
+
+    public void removeAll()
+    {
+        try(Connection conn=Database.sql2o.open()) {
+            String remove="DELETE FROM sightings";
+            conn.createQuery(remove)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate();
+        }
+    }
 }
 

@@ -1,13 +1,12 @@
 {{#partial "content"}}
-<h2><strong>Registered Animals</strong></h2>
 
     {{#if endangeredAnimals}}
-        <h3>Registered Animals</h3>
+        {{#partial "col-md-5"}}
+            <h2><strong><center>Registered Animals</center></strong></h2>
         {{#each endangeredAnimals}}
-            {{#partial "col-md-5"}}
-                <p>{{name}}</p>
-            {{/partial}}
+                <p>{{name}}<a id="float" class="btn btn-primary" href="/animals/{{id}}/update">Status</a></p>
         {{/each}}
+        {{/partial}}
     {{else}}
        <h3>No Registered Animals</h3>
     {{/if}}

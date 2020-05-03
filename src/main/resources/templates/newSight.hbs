@@ -1,0 +1,19 @@
+{{#partial "content"}}
+    <a href="/sight" class="btn btn-default"><strong>Sights</strong></a>
+    <a href="/sight/new" class="btn btn-danger"><strong>New Sight</strong></a>
+
+        <h2><strong><center>New Sight</center></strong></h2>
+        <form action="/sight/new" method="post">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Animal Id...">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Location...">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Ranger Name...">
+            </div>
+            <button id="submit" type="submit" class="btn btn-success form-control"><strong>Submit</strong></button>
+        </form>
+{{/partial}}
+{{>layout.hbs}}
