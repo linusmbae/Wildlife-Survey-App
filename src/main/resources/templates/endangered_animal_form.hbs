@@ -1,7 +1,9 @@
 {{#partial "content"}}
-    <h2><strong>Endangered Animal</strong></h2>
-{{#if editAnimal}}
-    <form action="/animals/{{id}}/update" method="post">
+    <h2><strong>Endangered Animal</strong><a id="float" class="btn btn-success" href="/animals/{{editAnimal.id}}/remove"><strong>Remove</strong></a></h2>
+
+
+    {{#if editAnimal}}
+    <form action="/animals/{{editAnimal.id}}/update" method="post">
         <div class="form-group">
            <input type="text" placeholder="{{editAnimal.name}}"class="form-control">
         </div>
