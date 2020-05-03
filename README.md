@@ -15,14 +15,23 @@ for ubuntu users use the following in the terminal:
 
 > sudo apt-get install postgresql postgresql-contrib libpq-dev
 
-launch the postgreSQl using:
+##### launch the postgreSQl using:
 
-> psql
+> sudo -u postgres psql -U postgres
+
+##### update server password
+
+>ALTER USER postgres WITH PASSWORD '12345';
+
 
  ##### creating database
 > CREATE DATABASE wildlife_tracker;
 
+>\c wildlife_tracker;
+
 > CREATE TABLE animals (id serial PRIMARY KEY, name VARCHAR,type VARCHAR, gender VARCHAR, age VARCHAR, health VARCHAR);
+
+>CREATE TABLE sightings (id serial PRIMARY KEY, animalId int, location VARCHAR, rangerName VARCHAR);
 
  > CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;
 
