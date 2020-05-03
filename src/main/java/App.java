@@ -1,4 +1,5 @@
 import models.EndangeredAnimals;
+import models.Sightings;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -51,5 +52,20 @@ public class App {
 //            Map<String , Object>model=new HashMap<String, Object>();
 //
 //        });
+
+
+        get("/sight", (request, response) ->
+        {
+            Map<String , Object>model=new HashMap<String, Object>();
+            List<Sightings>sights=Sightings.getAll();
+            model.put("sights",sights);
+            return new ModelAndView(model,"sight.hbs");
+        },new HandlebarsTemplateEngine());
+
+        get("/sight/new", (request, response) ->
+        {
+            Map<String, Object>model= new HashMap<String, Object>();
+            return new ModelAndView(model,"newSight.hbs");
+        }, new HandlebarsTemplateEngine());
     }
 }

@@ -9,3 +9,8 @@ background-size: cover;
 {
 border-radius:20px;
 }
+
+#float
+{
+float:right;
+}
