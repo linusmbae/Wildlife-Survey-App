@@ -57,6 +57,8 @@ public class SightingsTest {
         assertEquals(savedSight.getId(),testSight.getId());
     }
 
+
+
     @Test
     public void getAll_returnsAllInstancesOfSight() {
         Sightings testSight = createSight();
@@ -81,6 +83,30 @@ public class SightingsTest {
 
         assertEquals(Sightings.findById(testSight.getId()),savedSight1);
         assertEquals(Sightings.findById(secondSight.getId()),savedSight2);
+    }
+
+    @Test
+    public void update_updatesSightDetails() {
+        Sightings testSight = createSight();
+        testSight.save();
+        int previousAnimalId=testSight.getAnimalId();
+        String previousLocation=testSight.getLocation();
+        String previousRangerName=testSight.getRangerName();
+        int previousId=testSight.getId();
+
+        testSight.update();
+        assertNotEquals(previousAnimalId,testSight.getAnimalId());
+        assertNotEquals(previousLocation,testSight.getLocation());
+        assertNotEquals(previousRangerName,testSight.getRangerName());
+        assertEquals(previousId,testSight.getId());
+    }
+
+    @Test
+    public void removeById_removesSightById() {
+        Sightings testSight=createSight();
+        testSight.save();
+        testSight.removeById();
+        assertEquals(null,Sightings.findById(testSight.getId()));
     }
 
     public Sightings createSight()

@@ -37,12 +37,19 @@ public class App {
             response.redirect("/");
             return null;
         },new HandlebarsTemplateEngine());
-        get("/animals/endangered", (request, response) ->
+        get("/animals/:id/update", (request, response) ->
         {
             Map<String, Object>model=new HashMap<String, Object>();
-            List<EndangeredAnimals> endangeredAnimals=EndangeredAnimals.getAll();
-            model.put("endangeredAnimals", endangeredAnimals);
+            int idToUpdate=Integer.parseInt(request.params(":id"));
+            EndangeredAnimals editAnimal=EndangeredAnimals.findById(idToUpdate);
+            model.put("editAnimal", editAnimal);
             return new ModelAndView(model, "endangered_animal_form.hbs");
         }, new HandlebarsTemplateEngine());
+
+//        post("/animals/endangered/update", (request, response) ->
+//        {
+//            Map<String , Object>model=new HashMap<String, Object>();
+//
+//        });
     }
 }

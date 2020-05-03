@@ -37,6 +37,7 @@ public class EndangeredAnimals extends Animals implements Animal{
             this.id = (int) conn.createQuery(save, true)
                     .addParameter("name", this.name)
                     .addParameter("rangerId",this.rangerId)
+                    .throwOnMappingFailure(false)
                     .executeUpdate()
                     .getKey();
         }
@@ -83,6 +84,7 @@ public class EndangeredAnimals extends Animals implements Animal{
             conn.createQuery(updateNewBorn)
                     .addParameter("ageNewBorn", ageNewBorn)
                     .addParameter("id", id)
+                    .throwOnMappingFailure(false)
                     .executeUpdate();
 
 //            young animal
@@ -90,6 +92,7 @@ public class EndangeredAnimals extends Animals implements Animal{
             conn.createQuery(updateYoung)
                     .addParameter("ageYoung", ageYoung)
                     .addParameter("id", id)
+                    .throwOnMappingFailure(false)
                     .executeUpdate();
 
 //            adult animal
@@ -97,6 +100,7 @@ public class EndangeredAnimals extends Animals implements Animal{
             conn.createQuery(updateAdult)
                     .addParameter("ageAdult", ageAdult)
                     .addParameter("id", id)
+                    .throwOnMappingFailure(false)
                     .executeUpdate();
 
 //            update health
@@ -105,6 +109,7 @@ public class EndangeredAnimals extends Animals implements Animal{
             conn.createQuery(updateHealthy)
                     .addParameter("healthHealthy", healthHealthy)
                     .addParameter("id", id)
+                    .throwOnMappingFailure(false)
                     .executeUpdate();
 
 //            ill animal
@@ -112,6 +117,7 @@ public class EndangeredAnimals extends Animals implements Animal{
             conn.createQuery(updateIll)
                     .addParameter("healthIll",healthIll)
                     .addParameter("id", id)
+                    .throwOnMappingFailure(false)
                     .executeUpdate();
 
 //            okay animal
@@ -119,6 +125,7 @@ public class EndangeredAnimals extends Animals implements Animal{
             conn.createQuery(updateOkay)
                     .addParameter("healthOkay", healthOkay)
                     .addParameter("id", id)
+                    .throwOnMappingFailure(false)
                     .executeUpdate();
         }
     }
@@ -130,6 +137,7 @@ public class EndangeredAnimals extends Animals implements Animal{
             String remove = "DELETE FROM animals WHERE id = :id";
             conn.createQuery(remove)
                     .addParameter("id", this.id)
+                    .throwOnMappingFailure(false)
                     .executeUpdate();
         }
     }
@@ -140,6 +148,7 @@ public class EndangeredAnimals extends Animals implements Animal{
         {
             String remove = "DELETE FROM animals";
             conn.createQuery(remove)
+                    .throwOnMappingFailure(false)
                     .executeUpdate();
         }
     }
