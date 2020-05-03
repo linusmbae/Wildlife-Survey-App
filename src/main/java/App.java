@@ -126,5 +126,6 @@ public class App {
             response.redirect("/sight");
             return null;
         }, new HandlebarsTemplateEngine());
+
     }
 }
