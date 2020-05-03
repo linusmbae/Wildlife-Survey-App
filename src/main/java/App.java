@@ -86,5 +86,14 @@ public class App {
             response.redirect("/sight");
             return null;
         },new HandlebarsTemplateEngine());
+
+        get("/sight/:id/update",(request, response) ->
+        {
+            Map<String, Object>model=new HashMap<String, Object>();
+            int idToUpdate=Integer.parseInt(request.params(":id"));
+            Sightings editSight=Sightings.findById(idToUpdate);
+            model.put("editSight", editSight);
+            return new ModelAndView(model, "update-sight.hbs");
+        },new HandlebarsTemplateEngine());
     }
 }

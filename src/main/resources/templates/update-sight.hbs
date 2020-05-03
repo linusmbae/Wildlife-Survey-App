@@ -1,0 +1,17 @@
+{{#partial "content"}}
+    {{#if editSight}}
+        <form action="/sight/{{id}}/update">
+            <div class="form-group">
+                <input type="text" value="{{editSight.animalId}}" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" value="{{editSight.location}}" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" value="{{editSight.rangerName}}" class="form-control">
+            </div>
+            <button id="submit" type="submit" class="btn btn-success form-control"><strong>Submit</strong></button>
+        </form>
+    {{/if}}
+{{/partial}}
+{{>layout.hbs}}
