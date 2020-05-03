@@ -1,6 +1,11 @@
 {{#partial "content"}}
+    <h2>
+        <a class="btn active" href="/sight"><strong>Back</strong></a>
+        <a id="float" class="btn btn-danger" href="/sight/{{editSight.id}}/remove"><strong>Remove</strong></a>
+    </h2>
+
     {{#if editSight}}
-        <form action="/sight/{{id}}/update">
+        <form action="/sight/{{editSight.id}}/update" method="post">
             <div class="form-group">
                 <input type="text" value="{{editSight.animalId}}" class="form-control">
             </div>
