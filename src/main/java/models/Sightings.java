@@ -105,5 +105,15 @@ public class Sightings extends Animals{
                     .executeUpdate();
         }
     }
+
+    public void removeAll()
+    {
+        try(Connection conn=Database.sql2o.open()) {
+            String remove="DELETE FROM sightings";
+            conn.createQuery(remove)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate();
+        }
+    }
 }
 

@@ -109,6 +109,14 @@ public class SightingsTest {
         assertEquals(null,Sightings.findById(testSight.getId()));
     }
 
+    @Test
+    public void removeAll_clearsSightingsDatabase() {
+        Sightings testSight=createSight();
+        testSight.save();
+        testSight.removeAll();
+        assertEquals(null,Sightings.findById(testSight.getId()));
+    }
+
     public Sightings createSight()
 {
     return new Sightings(1,"Near The River","James");
