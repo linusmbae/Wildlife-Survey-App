@@ -4,15 +4,17 @@ import org.sql2o.*;
 
 import java.util.List;
 
-public class Sightings extends Animals{
-    private int animalId;
-    private String location;
-    private String rangerName;
+public class Sightings{
+    private int id;
+    public int animalId;
+    public String location;
+    public String rangerName;
 
     public Sightings(int animalId, String location, String rangerName) {
         this.animalId = animalId;
         this.location = location;
         this.rangerName = rangerName;
+
     }
 
     @Override
@@ -44,14 +46,15 @@ public class Sightings extends Animals{
         return id;
     }
 
-    public void save()
+    public void saveSight()
     {
         try(Connection conn=Database.sql2o.open()) {
-            String save = "INSERT INTO sightings (animalid,location,rangername) VALUES (:animalId, :location,:rangerName)";
+            String save = "INSERT INTO sightings (animalId,location,rangerName) VALUES (:animalId, :location,:rangerName)";
             this.id = (int) conn.createQuery(save, true)
                     .addParameter("animalId", this.animalId)
                     .addParameter("location",this.location)
                     .addParameter("rangerName", this.rangerName)
+                    .throwOnMappingFailure(false)
                     .executeUpdate()
                     .getKey();
         }
@@ -81,7 +84,7 @@ public class Sightings extends Animals{
         }
     }
 
-    public void update()
+    public void update(int animalId, String location, String rangerName)
     {
         try (Connection conn = Database.sql2o.open()){
             String sql = "UPDATE sightings SET animalid=:animalId, location=:location,rangername=:rangerName WHERE id=:id";
@@ -89,7 +92,7 @@ public class Sightings extends Animals{
                     .addParameter("animalId", animalId)
                     .addParameter("location", location)
                     .addParameter("rangerName", rangerName)
-                    .addParameter("id",id)
+                    .addParameter("id",this.id)
                     .throwOnMappingFailure(false)
                     .executeUpdate();
 

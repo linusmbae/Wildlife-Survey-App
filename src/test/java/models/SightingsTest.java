@@ -45,14 +45,14 @@ public class SightingsTest {
     @Test
     public void save_savesSightToTheDatabase() {
         Sightings testSight=createSight();
-        testSight.save();
+        testSight.saveSight();
         assertTrue(Sightings.getAll().get(0).equals(testSight));
     }
 
     @Test
     public void save_assignsIdToSight() {
         Sightings testSight = createSight();
-        testSight.save();
+        testSight.saveSight();
         Sightings savedSight = Sightings.getAll().get(0);
         assertEquals(savedSight.getId(),testSight.getId());
     }
@@ -61,50 +61,45 @@ public class SightingsTest {
 
     @Test
     public void getAll_returnsAllInstancesOfSight() {
-        Sightings testSight = createSight();
-        testSight.save();
-        Sightings saved1 = Sightings.findById(testSight.getId());
-        Sightings secondSight = createSecondSight();
-        testSight.save();
-        Sightings saved2 = Sightings.findById(secondSight.getId());
-
-        assertEquals(true,Sightings.getAll().get(0).equals(saved1));
-//        assertEquals(true,Sightings.getAll().get(1).equals(saved2));
+        Sightings testSight=createSight();
+        testSight.saveSight();
+        Sightings testSecondSight=createSecondSight();
+        testSecondSight.saveSight();
+        assertTrue(Sightings.getAll().get(0).equals(testSight));
+        assertTrue(Sightings.getAll().get(1).equals(testSecondSight));
     }
 
     @Test
     public void findById_returnsAllSightsWithSameId_SecondSight() {
         Sightings testSight = createSight();
-        testSight.save();
+        testSight.saveSight();
         Sightings savedSight1 = Sightings.findById(testSight.getId());
         Sightings secondSight =createSecondSight();
-        testSight.save();
+        testSight.saveSight();
         Sightings savedSight2 = Sightings.findById(secondSight.getId());
 
         assertEquals(Sightings.findById(testSight.getId()),savedSight1);
         assertEquals(Sightings.findById(secondSight.getId()),savedSight2);
     }
-//
-//    @Test
-//    public void update_updatesSightDetails() {
-//        Sightings testSight = createSight();
-//        testSight.save();
-//        int previousAnimalId=testSight.getAnimalId();
-//        String previousLocation=testSight.getLocation();
-//        String previousRangerName=testSight.getRangerName();
-//        int previousId=testSight.getId();
-//
-//        testSight.update();
-//        assertNotEquals(previousAnimalId,testSight.getAnimalId());
-//        assertNotEquals(previousLocation,testSight.getLocation());
-//        assertNotEquals(previousRangerName,testSight.getRangerName());
-//        assertEquals(previousId,testSight.getId());
-//    }
+
+    @Test
+    public void update_updatesSightDetails() {
+        Sightings testSight = createSight();
+        testSight.saveSight();
+
+        testSight.update(2,"Gate C","Mark");
+        Sightings updatedSight=Sightings.findById(testSight.getId());
+
+        assertEquals(testSight.getId(),updatedSight.getId());
+        assertNotEquals(testSight.getAnimalId(),updatedSight.getAnimalId());
+        assertNotEquals(testSight.getLocation(),updatedSight.getLocation());
+        assertNotEquals(testSight.getRangerName(),updatedSight.getRangerName());
+    }
 
     @Test
     public void removeById_removesSightById() {
         Sightings testSight=createSight();
-        testSight.save();
+        testSight.saveSight();
         testSight.removeById();
         assertEquals(null,Sightings.findById(testSight.getId()));
     }
@@ -112,7 +107,7 @@ public class SightingsTest {
     @Test
     public void removeAll_clearsSightingsDatabase() {
         Sightings testSight=createSight();
-        testSight.save();
+        testSight.saveSight();
         testSight.removeAll();
         assertEquals(null,Sightings.findById(testSight.getId()));
     }

@@ -29,7 +29,7 @@ for ubuntu users use the following in the terminal:
 
 >\c wildlife_tracker;
 
-> CREATE TABLE animals (id serial PRIMARY KEY, name VARCHAR,type VARCHAR, gender VARCHAR, age VARCHAR, health VARCHAR);
+> CREATE TABLE animals (id serial PRIMARY KEY, name VARCHAR, age VARCHAR, health VARCHAR);
 
 >CREATE TABLE sightings (id serial PRIMARY KEY, animalId int, location VARCHAR, rangerName VARCHAR);
 
@@ -54,7 +54,7 @@ Clone the App to your local storage and launch it.
 # CopyRight & License
 MIT License
 
-Hero Squad
+Wildlife Survey App
 
 Copyright (c) [2020] [Linus Mutugi Mbae]
 

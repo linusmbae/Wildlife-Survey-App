@@ -33,7 +33,9 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             String name = request.queryParams("name");
             int rangerId = Integer.parseInt(request.queryParams("rangerId"));
-            EndangeredAnimals endangeredAnimals= new EndangeredAnimals(name,rangerId);
+            String age =request.queryParams("age");
+            String health=request.queryParams("health");
+            EndangeredAnimals endangeredAnimals= new EndangeredAnimals(name,rangerId,age,health);
             endangeredAnimals.save();
             response.redirect("/");
             return null;
@@ -47,14 +49,20 @@ public class App {
             return new ModelAndView(model, "endangered_animal_form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/animals/:id/update", (request, response) ->
+        post("/animal/:id/update", (request, response) ->
         {
             Map<String , Object>model=new HashMap<String, Object>();
+
+            String name=request.queryParams("name");
+            int rangerId=Integer.parseInt(request.queryParams("rangerId"));
             String age = request.queryParams("age");
             String health = request.queryParams("health");
+
             int idToUpdate = Integer.parseInt(request.params(":id"));
+
             EndangeredAnimals updateAnimal=EndangeredAnimals.findById(idToUpdate);
-            updateAnimal.update();
+            updateAnimal.update(name,rangerId,age,health);
+
             response.redirect("/");
             return null;
         },new HandlebarsTemplateEngine());
@@ -71,21 +79,25 @@ public class App {
         get("/sight/new", (request, response) ->
         {
             Map<String, Object>model= new HashMap<String, Object>();
+            List<EndangeredAnimals>animals=EndangeredAnimals.getAll();
+            model.put("animals",animals);
             return new ModelAndView(model,"newSight.hbs");
         }, new HandlebarsTemplateEngine());
 
         post("/sight/new", (request, response) ->
         {
             Map<String, Object>model=new HashMap<String, Object>();
+
             int animalId=Integer.parseInt(request.queryParams("animalId"));
             String location=request.queryParams("location");
             String rangerName = request.queryParams("rangerName");
 
             Sightings newSight=new Sightings(animalId,location,rangerName);
-            newSight.save();
+            newSight.saveSight();
             response.redirect("/sight");
             return null;
         },new HandlebarsTemplateEngine());
+
 
         get("/sight/:id/update",(request, response) ->
         {
@@ -103,7 +115,7 @@ public class App {
             String rangerName = request.queryParams("rangerName");
             int idToUpdate = Integer.parseInt(request.params(":id"));
             Sightings updateSight=Sightings.findById(idToUpdate);
-            updateSight.update();
+            updateSight.update(animalId,location,rangerName);
             response.redirect("/sight");
             return null;
         },new HandlebarsTemplateEngine());

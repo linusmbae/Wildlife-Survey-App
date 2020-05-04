@@ -5,38 +5,23 @@ import org.sql2o.*;
 import java.util.List;
 
 public class EndangeredAnimals extends Animals implements Animal{
-    private String ageNewBorn;
-    private String ageYoung;
-    private String ageAdult;
 
-    public static final String AGE_NEWBORN = "newBorn";
-    public static final String AGE_YOUNG = "young";
-    public static final String AGE_ADULT = "adult";
-
-    private String healthHealthy;
-    private String healthIll;
-    private String healthOkay;
-    public static String HEALTH_HEALTHY = "healthy";
-    public static String HEALTH_ILL = "ill";
-    public static String HEALTH_OKAY = "okay";
-
-    public EndangeredAnimals(String name, int rangerId) {
+    public EndangeredAnimals(String name, int rangerId, String age, String health) {
         this.name=name;
         this.rangerId=rangerId;
-        ageNewBorn=AGE_NEWBORN;
-        ageYoung=AGE_YOUNG;
-        ageAdult=AGE_ADULT;
-        healthHealthy=HEALTH_HEALTHY;
-        healthIll=HEALTH_ILL;
-        healthOkay=HEALTH_OKAY;
+        this.age=age;
+        this.health=health;
+
     }
 
     public void save() {
         try(Connection conn=Database.sql2o.open()) {
-            String save="INSERT INTO animals (name,rangerid) VALUES (:name, :rangerId)";
+            String save="INSERT INTO animals (name,rangerid,age,health) VALUES (:name, :rangerId,:age,:health)";
             this.id = (int) conn.createQuery(save, true)
                     .addParameter("name", this.name)
                     .addParameter("rangerId",this.rangerId)
+                    .addParameter("age",this.age)
+                    .addParameter("health",this.health)
                     .throwOnMappingFailure(false)
                     .executeUpdate()
                     .getKey();
@@ -75,56 +60,17 @@ public class EndangeredAnimals extends Animals implements Animal{
     }
     }
 
-    public void update() {
+    public void update(String name, int rangerId, String age, String health) {
         try(Connection conn=Database.sql2o.open())
         {
-//            update age
-//            new born animal
-            String updateNewBorn = "UPDATE animals SET age=:ageNewBorn WHERE id = :id";
+//
+            String updateNewBorn = "UPDATE animals SET name=:name, rangerid=:rangerId,age=:age, health=:health WHERE id = :id";
             conn.createQuery(updateNewBorn)
-                    .addParameter("ageNewBorn", ageNewBorn)
-                    .addParameter("id", id)
-                    .throwOnMappingFailure(false)
-                    .executeUpdate();
-
-//            young animal
-            String updateYoung = "UPDATE animals SET age = :ageYoung WHERE id= :id";
-            conn.createQuery(updateYoung)
-                    .addParameter("ageYoung", ageYoung)
-                    .addParameter("id", id)
-                    .throwOnMappingFailure(false)
-                    .executeUpdate();
-
-//            adult animal
-            String updateAdult = "UPDATE animals SET age = :ageAdult WHERE id = :id";
-            conn.createQuery(updateAdult)
-                    .addParameter("ageAdult", ageAdult)
-                    .addParameter("id", id)
-                    .throwOnMappingFailure(false)
-                    .executeUpdate();
-
-//            update health
-//            healthy animal
-            String updateHealthy = "UPDATE animals SET health = :healthHealthy WHERE id = :id";
-            conn.createQuery(updateHealthy)
-                    .addParameter("healthHealthy", healthHealthy)
-                    .addParameter("id", id)
-                    .throwOnMappingFailure(false)
-                    .executeUpdate();
-
-//            ill animal
-            String updateIll = "UPDATE animals SET health = :healthIll WHERE id = :id";
-            conn.createQuery(updateIll)
-                    .addParameter("healthIll",healthIll)
-                    .addParameter("id", id)
-                    .throwOnMappingFailure(false)
-                    .executeUpdate();
-
-//            okay animal
-            String updateOkay = "UPDATE animals SET health = :healthOkay WHERE id =:id";
-            conn.createQuery(updateOkay)
-                    .addParameter("healthOkay", healthOkay)
-                    .addParameter("id", id)
+                    .addParameter("name", name)
+                     .addParameter("rangerId",rangerId)
+                    .addParameter("age", age)
+                    .addParameter("health",health)
+                    .addParameter("id", this.id)
                     .throwOnMappingFailure(false)
                     .executeUpdate();
         }
@@ -153,27 +99,4 @@ public class EndangeredAnimals extends Animals implements Animal{
         }
     }
 
-    public String getAgeNewBorn() {
-        return ageNewBorn;
-    }
-
-    public String getAgeYoung() {
-        return ageYoung;
-    }
-
-    public String getAgeAdult() {
-        return ageAdult;
-    }
-
-    public String getHealthHealthy() {
-        return healthHealthy;
-    }
-
-    public String getHealthIll() {
-        return healthIll;
-    }
-
-    public String getHealthOkay() {
-        return healthOkay;
-    }
 }
