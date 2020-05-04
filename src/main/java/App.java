@@ -33,7 +33,9 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             String name = request.queryParams("name");
             int rangerId = Integer.parseInt(request.queryParams("rangerId"));
-            EndangeredAnimals endangeredAnimals= new EndangeredAnimals(name,rangerId);
+            String age =request.queryParams("age");
+            String health=request.queryParams("health");
+            EndangeredAnimals endangeredAnimals= new EndangeredAnimals(name,rangerId,age,health);
             endangeredAnimals.save();
             response.redirect("/");
             return null;

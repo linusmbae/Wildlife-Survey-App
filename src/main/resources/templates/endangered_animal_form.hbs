@@ -10,9 +10,15 @@
     {{#if editAnimal}}
     <form action="/animals/{{editAnimal.id}}/update" method="post">
         <div class="form-group">
-           <input type="text" placeholder="{{editAnimal.name}}"class="form-control">
+            <label for="name">Name</label>
+           <input type="text" value="{{editAnimal.name}}"class="form-control">
         </div>
         <div class="form-group">
+            <label for="rangerId">Ranger Id</label>
+            <input type="text" value="{{editAnimal.rangerId}}"class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="age">The animal was {{editAnimal.age}}</label>
                 <select name="age" id="age" class="form-control">
                     <option value="" >New Born</option>
                     <option value="" >Young</option>
@@ -20,13 +26,14 @@
                 </select>
         </div>
         <div class="form-group">
+            <label for="health">The animal was {{editAnimal.health}}</label>
                 <select name="health" id="health" class="form-control">
                     <option value="" >Healthy</option>
                     <option value="" >Ill</option>
                     <option value="" >Okay</option>
                 </select>
         </div>
-        <button id="submit" type="submit" class="btn btn-success form-control"><strong>Save</strong></button>
+        <button id="submit" type="submit" class="btn btn-success form-control"><strong>Update</strong></button>
     </form>
 {{else}}
     select animal
