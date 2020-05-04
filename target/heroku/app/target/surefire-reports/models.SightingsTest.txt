@@ -1,0 +1,64 @@
+-------------------------------------------------------------------------------
+Test set: models.SightingsTest
+-------------------------------------------------------------------------------
+Tests run: 12, Failures: 0, Errors: 12, Skipped: 0, Time elapsed: 0.001 sec <<< FAILURE! - in models.SightingsTest
+save_assignsIdToSight(models.SightingsTest)  Time elapsed: 0 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
+
+findById_returnsAllSightsWithSameId_SecondSight(models.SightingsTest)  Time elapsed: 0 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
+
+sighting_instantiatesWithAnimalId_int(models.SightingsTest)  Time elapsed: 0 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
+
+sightingsInstantiatesCorrectly_true(models.SightingsTest)  Time elapsed: 0 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
+
+removeAll_clearsSightingsDatabase(models.SightingsTest)  Time elapsed: 0 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
+
+sighting_instantiatesWithLocation_string(models.SightingsTest)  Time elapsed: 0 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
+
+getAll_returnsAllInstancesOfSight(models.SightingsTest)  Time elapsed: 0 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
+
+equals_returnsTrueIfSightDetailsAreEqual_true(models.SightingsTest)  Time elapsed: 0 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
+
+update_updatesSightDetails(models.SightingsTest)  Time elapsed: 0 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
+
+save_savesSightToTheDatabase(models.SightingsTest)  Time elapsed: 0 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
+
+removeById_removesSightById(models.SightingsTest)  Time elapsed: 0 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
+
+sighting_instantiatesWithRangerName_String(models.SightingsTest)  Time elapsed: 0 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
+Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
+Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
+

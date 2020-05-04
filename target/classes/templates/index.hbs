@@ -1,0 +1,14 @@
+{{#partial "content"}}
+
+    {{#if endangeredAnimals}}
+        {{#partial "col-md-5"}}
+            <h2><strong><center>Registered Animals</center></strong></h2>
+        {{#each endangeredAnimals}}
+                <p>{{name}}<a id="float" class="btn btn-primary" href="/animals/{{id}}/update">Status</a></p>
+        {{/each}}
+        {{/partial}}
+    {{else}}
+       <h3>No Registered Animals</h3>
+    {{/if}}
+{{/partial}}
+{{>layout.hbs}}

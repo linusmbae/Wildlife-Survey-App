@@ -1,0 +1,42 @@
+{{#partial "content"}}
+    <h2>
+        <strong><center>Endangered Animal</center></strong>
+        <br>
+        <a  class="btn active" href="/"><strong>Back</strong></a>
+        <a id="float" class="btn btn-success" href="/animals/{{editAnimal.id}}/remove"><strong>Remove</strong></a>
+    </h2>
+
+
+    {{#if editAnimal}}
+    <form action="/animal/{{editAnimal.id}}/update" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+           <input type="text" value="{{editAnimal.name}}"class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="rangerId">Ranger Id</label>
+            <input type="text" value="{{editAnimal.rangerId}}"class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="age">The animal was {{editAnimal.age}}</label>
+                <select name="age" id="age" class="form-control">
+                    <option value="" >New Born</option>
+                    <option value="" >Young</option>
+                    <option value="" >Old</option>
+                </select>
+        </div>
+        <div class="form-group">
+            <label for="health">The animal was {{editAnimal.health}}</label>
+                <select name="health" id="health" class="form-control">
+                    <option value="" >Healthy</option>
+                    <option value="" >Ill</option>
+                    <option value="" >Okay</option>
+                </select>
+        </div>
+        <button id="submit" type="submit" class="btn btn-success form-control"><strong>Update</strong></button>
+    </form>
+{{else}}
+    select animal
+{{/if}}
+{{/partial}}
+{{>layout.hbs}}
