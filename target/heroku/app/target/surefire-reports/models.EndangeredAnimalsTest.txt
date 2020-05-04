@@ -1,18 +1,18 @@
 -------------------------------------------------------------------------------
 Test set: models.EndangeredAnimalsTest
 -------------------------------------------------------------------------------
-Tests run: 11, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 0.817 sec <<< FAILURE! - in models.EndangeredAnimalsTest
-update_updatesAnimalDetails(models.EndangeredAnimalsTest)  Time elapsed: 0.683 sec  <<< ERROR!
+Tests run: 11, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 0.649 sec <<< FAILURE! - in models.EndangeredAnimalsTest
+update_updatesAnimalDetails(models.EndangeredAnimalsTest)  Time elapsed: 0.547 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
 Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
 Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
 
-endangered_instantiatesCorrectly_true(models.EndangeredAnimalsTest)  Time elapsed: 0.001 sec  <<< ERROR!
+endangered_instantiatesCorrectly_true(models.EndangeredAnimalsTest)  Time elapsed: 0.002 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
 Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
 Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
 
-removeById_removesAnimalById(models.EndangeredAnimalsTest)  Time elapsed: 0.001 sec  <<< ERROR!
+removeById_removesAnimalById(models.EndangeredAnimalsTest)  Time elapsed: 0.003 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
 Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
 Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
@@ -22,7 +22,7 @@ org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The c
 Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
 Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
 
-save_savesAnimalToTheDatabase(models.EndangeredAnimalsTest)  Time elapsed: 0.002 sec  <<< ERROR!
+save_savesAnimalToTheDatabase(models.EndangeredAnimalsTest)  Time elapsed: 0.003 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
 Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
 Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
@@ -32,7 +32,7 @@ org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The c
 Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
 Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
 
-save_assignsIdToAnimal(models.EndangeredAnimalsTest)  Time elapsed: 0.002 sec  <<< ERROR!
+save_assignsIdToAnimal(models.EndangeredAnimalsTest)  Time elapsed: 0.001 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
 Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
 Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
@@ -42,17 +42,17 @@ org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The c
 Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
 Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
 
-find_returnsAnimalWithSameId_secondAnimal(models.EndangeredAnimalsTest)  Time elapsed: 0.002 sec  <<< ERROR!
+find_returnsAnimalWithSameId_secondAnimal(models.EndangeredAnimalsTest)  Time elapsed: 0.001 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
 Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
 Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
 
-equals_returnsTrueIfNameAndRangerIdAreSame_true(models.EndangeredAnimalsTest)  Time elapsed: 0.002 sec  <<< ERROR!
+equals_returnsTrueIfNameAndRangerIdAreSame_true(models.EndangeredAnimalsTest)  Time elapsed: 0.001 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
 Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
 Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
 
-endangered_instantiatesWithRangerId_int(models.EndangeredAnimalsTest)  Time elapsed: 0.002 sec  <<< ERROR!
+endangered_instantiatesWithRangerId_int(models.EndangeredAnimalsTest)  Time elapsed: 0.001 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
 Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
 Caused by: java.net.UnknownHostException: aoizczhjwnjwso:4dd97d27fc56f55ec91001a254fc9be4e9205d50e84c4548c03036ca81bbee2d@ec2-52-202-22-140.compute-1.amazonaws.com
