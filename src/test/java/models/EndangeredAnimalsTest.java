@@ -68,74 +68,19 @@ public class EndangeredAnimalsTest {
         assertEquals(EndangeredAnimals.findById(secondAnimal.getId()), secondAnimal);
     }
 
-//    @Test
-//    public void endangeredAnimal_instantiatesWithNewBorn() {
-//        EndangeredAnimals testAnimal = createAnimal();
-//        testAnimal.save();
-//        assertEquals(testAnimal.getAgeNewBorn(),(EndangeredAnimals.AGE_NEWBORN));
-//    }
-//
-//    @Test
-//    public void endangeredAnimal_instantiatesWithYoungAnimal() {
-//        EndangeredAnimals testAnimal = createAnimal();
-//        testAnimal.save();
-//        assertEquals(testAnimal.getAgeYoung(),(EndangeredAnimals.AGE_YOUNG));
-//    }
-//
-//    @Test
-//    public void endangeredAnimal_instantiatesWithAdultAnimal() {
-//        EndangeredAnimals testAnimal = createAnimal();
-//        testAnimal.save();
-//        assertEquals(testAnimal.getAgeAdult(),(EndangeredAnimals.AGE_ADULT));
-//    }
-//
-//    @Test
-//    public void update_updatesEndangeredAnimalEstimatedNewBornAge() {
-//        EndangeredAnimals testAnimal = createAnimal();
-//        testAnimal.update();
-//        EndangeredAnimals savedAnimal=EndangeredAnimals.findById(testAnimal.getId());
-//        assertTrue(testAnimal.getAgeNewBorn().equals(savedAnimal.AGE_NEWBORN));
-//    }
-//
-//    @Test
-//    public void update_updatesEndangeredAnimalEstimatedYoungAge() {
-//        EndangeredAnimals testAnimal = createAnimal();
-//        testAnimal.update();
-//        EndangeredAnimals savedAnimal=EndangeredAnimals.findById(testAnimal.getId());
-//        assertTrue(testAnimal.getAgeYoung().equals(savedAnimal.AGE_YOUNG));
-//    }
-//
-//    @Test
-//    public void update_updatesEndangeredAnimalEstimatedAdultAge() {
-//        EndangeredAnimals testAnimal = createAnimal();
-//        testAnimal.update();
-//        EndangeredAnimals savedAnimal = EndangeredAnimals.findById(testAnimal.getId());
-//        assertTrue(testAnimal.getAgeAdult().equals(savedAnimal.AGE_ADULT));
-//    }
-//
-//    @Test
-//    public void update_updatesHealthyAnimal() {
-//        EndangeredAnimals testAnimal= createAnimal();
-//        testAnimal.update();
-//        EndangeredAnimals savedAnimal = EndangeredAnimals.findById(testAnimal.getId());
-//        assertTrue(testAnimal.getHealthHealthy().equals(savedAnimal.HEALTH_HEALTHY));
-//    }
-//
-//    @Test
-//    public void update_updatesIllAnimal() {
-//        EndangeredAnimals testAnimal =createAnimal();
-//        testAnimal.update();
-//        EndangeredAnimals savedAnimal =EndangeredAnimals.findById(testAnimal.getId());
-//        assertTrue(testAnimal.getHealthIll().equals(savedAnimal.HEALTH_ILL));
-//    }
-//
-//    @Test
-//    public void update_updatesOkayAnimal() {
-//        EndangeredAnimals testAnimal = createAnimal();
-//        testAnimal.update();
-//        EndangeredAnimals savedAnimal = EndangeredAnimals.findById(testAnimal.getId());
-//        assertTrue(testAnimal.getHealthOkay().equals(savedAnimal.HEALTH_OKAY));
-//    }
+    @Test
+    public void update_updatesAnimalDetails() throws Exception {
+        EndangeredAnimals testAnimal=createAnimal();
+        testAnimal.save();
+
+        testAnimal.update("Lioness",2,"Old","Okay");
+        EndangeredAnimals updatedAnimal=EndangeredAnimals.findById(testAnimal.getId());
+        assertEquals(testAnimal.getId(),updatedAnimal.getId());
+        assertNotEquals(testAnimal.getName(),updatedAnimal.getName());
+        assertNotEquals(testAnimal.getRangerId(),updatedAnimal.getRangerId());
+        assertNotEquals(testAnimal.getAge(),updatedAnimal.getAge());
+        assertNotEquals(testAnimal.getHealth(),updatedAnimal.getHealth());
+    }
 
     @Test
     public void removeById_removesAnimalById() {

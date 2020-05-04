@@ -9,7 +9,7 @@ public interface Animal {
 //    void getAll();
 
 //    UPDATE ANIMAL
-    void update();
+    void update(String name, int rangerId, String age, String health);
 
 
 //    DESTROY ANIMAL

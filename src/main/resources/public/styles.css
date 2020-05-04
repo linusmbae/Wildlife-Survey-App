@@ -14,3 +14,11 @@ border-radius:20px;
 {
 float:right;
 }
+
+#animals
+{
+border: solid black;
+background-color:gray;
+overflow-y:scroll;
+height: 100px;
+}
