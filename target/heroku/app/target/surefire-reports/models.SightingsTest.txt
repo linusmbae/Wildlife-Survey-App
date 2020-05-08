@@ -1,52 +1,52 @@
 -------------------------------------------------------------------------------
 Test set: models.SightingsTest
 -------------------------------------------------------------------------------
-Tests run: 12, Failures: 0, Errors: 12, Skipped: 0, Time elapsed: 11.567 sec <<< FAILURE! - in models.SightingsTest
-save_assignsIdToSight(models.SightingsTest)  Time elapsed: 1.144 sec  <<< ERROR!
+Tests run: 12, Failures: 0, Errors: 12, Skipped: 0, Time elapsed: 11.849 sec <<< FAILURE! - in models.SightingsTest
+save_assignsIdToSight(models.SightingsTest)  Time elapsed: 1.404 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 
-findById_returnsAllSightsWithSameId_SecondSight(models.SightingsTest)  Time elapsed: 1.218 sec  <<< ERROR!
+findById_returnsAllSightsWithSameId_SecondSight(models.SightingsTest)  Time elapsed: 1.461 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 
-sighting_instantiatesWithAnimalId_int(models.SightingsTest)  Time elapsed: 0.621 sec  <<< ERROR!
+sighting_instantiatesWithAnimalId_int(models.SightingsTest)  Time elapsed: 0.536 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 
-sightingsInstantiatesCorrectly_true(models.SightingsTest)  Time elapsed: 0.607 sec  <<< ERROR!
+sightingsInstantiatesCorrectly_true(models.SightingsTest)  Time elapsed: 0.562 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 
-removeAll_clearsSightingsDatabase(models.SightingsTest)  Time elapsed: 1.241 sec  <<< ERROR!
+removeAll_clearsSightingsDatabase(models.SightingsTest)  Time elapsed: 1.117 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 
-sighting_instantiatesWithLocation_string(models.SightingsTest)  Time elapsed: 0.585 sec  <<< ERROR!
+sighting_instantiatesWithLocation_string(models.SightingsTest)  Time elapsed: 0.622 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 
-getAll_returnsAllInstancesOfSight(models.SightingsTest)  Time elapsed: 1.238 sec  <<< ERROR!
+getAll_returnsAllInstancesOfSight(models.SightingsTest)  Time elapsed: 1.331 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 
-equals_returnsTrueIfSightDetailsAreEqual_true(models.SightingsTest)  Time elapsed: 0.625 sec  <<< ERROR!
+equals_returnsTrueIfSightDetailsAreEqual_true(models.SightingsTest)  Time elapsed: 0.819 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 
-update_updatesSightDetails(models.SightingsTest)  Time elapsed: 1.159 sec  <<< ERROR!
+update_updatesSightDetails(models.SightingsTest)  Time elapsed: 1.126 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 
-save_savesSightToTheDatabase(models.SightingsTest)  Time elapsed: 1.296 sec  <<< ERROR!
+save_savesSightToTheDatabase(models.SightingsTest)  Time elapsed: 1.074 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 
-removeById_removesSightById(models.SightingsTest)  Time elapsed: 1.227 sec  <<< ERROR!
+removeById_removesSightById(models.SightingsTest)  Time elapsed: 1.195 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 
-sighting_instantiatesWithRangerName_String(models.SightingsTest)  Time elapsed: 0.602 sec  <<< ERROR!
+sighting_instantiatesWithRangerName_String(models.SightingsTest)  Time elapsed: 0.598 sec  <<< ERROR!
 org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "41.84.152.6", user "ubehwyfjkxozzy", database "d8jlcrqdig8sdv", SSL off
 

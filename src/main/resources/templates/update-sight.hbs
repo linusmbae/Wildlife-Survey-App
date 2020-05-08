@@ -7,13 +7,13 @@
     {{#if editSight}}
         <form action="/sight/{{editSight.id}}/update" method="post">
             <div class="form-group">
-                <input type="text" value="{{editSight.animalId}}" class="form-control">
+                <input type="text" value="{{editSight.animalId}}" class="form-control" name="animalId">
             </div>
             <div class="form-group">
-                <input type="text" value="{{editSight.location}}" class="form-control">
+                <input type="text" value="{{editSight.location}}" class="form-control" name="location">
             </div>
             <div class="form-group">
-                <input type="text" value="{{editSight.rangerName}}" class="form-control">
+                <input type="text" value="{{editSight.rangerName}}" class="form-control" name="rangerName">
             </div>
             <button id="submit" type="submit" class="btn btn-success form-control"><strong>Submit</strong></button>
         </form>
